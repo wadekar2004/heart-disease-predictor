@@ -2,7 +2,7 @@
 
 **Created by:** Aditya Wadekar  
 **Date:** August 2025  
-**GitHub:** [https://github.com/username/heart-disease](https://github.com/wadekar2004/heart-disease)
+**GitHub:** (https://github.com/wadekar2004/heart-disease)
 
 ---
 
