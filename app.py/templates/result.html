@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Disease Prediction Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>💓 Prediction Result</h1>
+
+    <div class="result-card {% if 'likely' in prediction_text %}danger{% else %}safe{% endif %}">
+      <h2>{{ prediction_text }}</h2>
+      <ul>
+        {% for tip in advice %}
+          <li>{{ tip }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="back-btn">
+      <a href="/">🔙 Try Again</a>
+    </div>
+  </div>
+</body>
+</html>

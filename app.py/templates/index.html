@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>💓 Heart Disease Prediction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>💓 Heart Disease Prediction
+        
+      </h1>
+      <p class="disclaimer">⚠️ This is a screening tool only. Please consult a clinician for medical diagnosis.</p>
+    </header>
+
+    <form action="/predict" method="post" class="grid-form">
+
+      <div class="field">
+        <label>Age</label>
+        <small>Enter your age in years.</small>
+        <input type="number" name="age" min="1" max="120" required>
+      </div>
+
+      <div class="field">
+        <label>Sex</label>
+        <small>Used for risk estimation.</small>
+        <div class="inline">
+          <label><input type="radio" name="sex" value="1" checked> Male</label>
+          <label><input type="radio" name="sex" value="0"> Female</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Chest Pain</label>
+        <select name="cp" required>
+          <option value="0">No chest pain</option>
+          <option value="1">Mild on exertion</option>
+          <option value="2">Pain on exertion, eases with rest</option>
+          <option value="3">Severe, even at rest</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Exercise-induced Chest Pain</label>
+        <select name="exang" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Resting Blood Pressure</label>
+        <select name="bp_cat" required>
+          <option value="110">Below 120 (Normal)</option>
+          <option value="130">120–139 (Slightly high)</option>
+          <option value="145">140–159 (High)</option>
+          <option value="165">160+ (Very high)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Total Cholesterol</label>
+        <select name="chol_cat" required>
+          <option value="180">Normal (&lt; 200)</option>
+          <option value="220">Borderline (200–239)</option>
+          <option value="260">High (≥ 240)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Max Heart Rate Reached</label>
+        <select name="hr_cat" required>
+          <option value="110">Low (&lt; 120)</option>
+          <option value="140">Medium (120–159)</option>
+          <option value="170">High (≥ 160)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>ST Depression (Oldpeak)</label>
+        <select name="oldpeak_cat" required>
+          <option value="0">None (0)</option>
+          <option value="0.5">Slight (0.1–1.0)</option>
+          <option value="1.5">Moderate (1.1–2.0)</option>
+          <option value="2.5">Severe (≥ 2.1)</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>ST Slope</label>
+        <select name="slope" required>
+          <option value="0">Upsloping</option>
+          <option value="1" selected>Flat</option>
+          <option value="2">Downsloping</option>
+        </select>
+      </div>
+
+      <details class="advanced">
+        <summary>🔧 Advanced (optional)</summary>
+        <div class="field">
+          <label>Fasting Blood Sugar</label>
+          <select name="fbs">
+            <option value="0" selected>No / Unknown</option>
+            <option value="1">Yes (≥ 120)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Resting ECG</label>
+          <select name="restecg">
+            <option value="0" selected>Normal / Unknown</option>
+            <option value="1">Slight abnormality</option>
+            <option value="2">Major abnormality</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Major Vessels (0–4)</label>
+          <input type="number" name="ca" min="0" max="4" value="0">
+        </div>
+
+        <div class="field">
+          <label>Thalassemia Test (Thal)</label>
+          <select name="thal">
+            <option value="0" selected>Unknown / Not tested</option>
+            <option value="1">Normal</option>
+            <option value="2">Fixed Defect</option>
+            <option value="3">Reversible Defect</option>
+          </select>
+        </div>
+      </details>
+
+      <div class="actions">
+        <button type="submit">🔍 Predict</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
